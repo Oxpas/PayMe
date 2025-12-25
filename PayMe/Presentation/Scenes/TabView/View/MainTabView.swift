@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selectionPage: TabPage = .paymentList
+    @State var selectionPage: TabPage = .main
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -19,8 +19,10 @@ struct MainTabView: View {
             TabView(selection: $selectionPage) {
                 ContentView()
                     .tag(TabPage.main)
+                    
                 PaymentsView()
                     .tag(TabPage.paymentList)
+                    
             }
             
             HStack(spacing: 30) {
@@ -31,6 +33,7 @@ struct MainTabView: View {
             .padding(.top, 20)
             .padding(.bottom, 1)
             
+            
         }
 
     }
@@ -38,31 +41,4 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
-}
-
-struct TabItem: View {
-    var image: String
-    var text: String
-    var pageType: TabPage
-    @Binding var selected: TabPage
-    
-    var body: some View {
-        Button {
-            selected = pageType
-        } label: {
-            VStack {
-                Image(systemName: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 23, height: 23)
-                Text(text)
-                    .RS(.extraLight, 16)
-            }
-            .foregroundStyle(pageType == selected ? .payBlack : .payYellow)
-            .padding(.vertical, 6)
-            .padding(.horizontal, 18)
-            .background(pageType == selected ? .payGreen : .payBlack)
-            .clipShape(RoundedRectangle(cornerRadius: 35))
-        }
-    }
 }
