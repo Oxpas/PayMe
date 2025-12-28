@@ -29,7 +29,3 @@ struct FullButton: View {
         }
     }
 }
-
-#Preview {
-    ContentView()
-}

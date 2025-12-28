@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainViewContentHeader: View {
+    @Binding var payType: PayType
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -17,18 +19,18 @@ struct MainViewContentHeader: View {
                 Spacer()
                 HStack {
                     Button {
-                        //
+                        payType = .monthly
                     } label: {
                         Text("ежемесячно")
-                            .RS(.semibold, 14)
+                            .RS(payType == .monthly ? .semibold : .extraLight, 14)
                             .foregroundStyle(.white)
                     }
                     
                     Button {
-                        //
+                        payType = .oneTime
                     } label: {
                         Text("разово")
-                            .RS(.extraLight, 14)
+                            .RS(payType == .monthly ? .extraLight : .semibold, 14)
                             .foregroundStyle(.white)
                     }
                 }
@@ -42,8 +44,4 @@ struct MainViewContentHeader: View {
             .foregroundStyle(.white)
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

@@ -36,6 +36,3 @@ struct SolidButton: View {
     }
 }
 
-#Preview {
-    ContentView()
-}

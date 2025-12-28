@@ -16,8 +16,20 @@ extension Date {
         return formatter
     }()
     
+    static let withoutDayMonthFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        
+        formatter.locale = Locale(identifier: "ru_RU")
+        formatter.dateFormat = "MMMM YYYY"
+        return formatter
+    }()
+    
     var dayMonthYear: String {
         Self.dayMonthFormatter.string(from: self)
+    }
+    
+    var withoutDayMonthYear: String {
+        Self.withoutDayMonthFormatter.string(from: self)
     }
     
     var day: Int {
