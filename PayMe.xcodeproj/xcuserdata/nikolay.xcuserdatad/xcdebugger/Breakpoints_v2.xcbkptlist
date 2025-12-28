@@ -14,10 +14,10 @@
             filePath = "PayMe/Presentation/Scenes/DetailsView/View/DetailsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "DetailsView"
-            landmarkType = "21">
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "header"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
