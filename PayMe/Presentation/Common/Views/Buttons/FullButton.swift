@@ -13,10 +13,11 @@ struct FullButton: View {
     var textColor: Color
     var topPadding: CGFloat
     var bottomPadding: CGFloat
+    var action: (() -> Void)?
     
     var body: some View {
         Button {
-            
+            action?()
         } label: {
             Text(text)
                 .RS(.extraLight, 14)
