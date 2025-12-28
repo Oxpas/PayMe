@@ -15,6 +15,8 @@ struct AddView: View {
     @State var isShowCalendar: Bool = false
     @State var isAdded: Bool = true
     
+    @State var viewModel: AddViewModel = Assembly.createAddViewModel()
+    
     var body: some View {
         VStack(alignment: .center, spacing: 27){
             Text("Добавить платеж")
@@ -129,7 +131,9 @@ struct AddView: View {
             
             Spacer()
             
-            FullButton(text: isAdded == true ? "Закрыть" : "Добавить", fillColor: .payYellow, textColor: .payBlack, topPadding: 25, bottomPadding: 25)
+            FullButton(text: isAdded == true ? "Закрыть" : "Добавить", fillColor: .payYellow, textColor: .payBlack, topPadding: 25, bottomPadding: 25) {
+                viewModel.createNewPayment()
+            }
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 20)
