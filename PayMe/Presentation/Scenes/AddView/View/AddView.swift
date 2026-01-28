@@ -8,12 +8,6 @@
 import SwiftUI
 
 struct AddView: View {
-    @State var nameText: String = ""
-    @State var isNotificationSelected: Bool = false
-    @State var payType: PayType = .monthly
-    @State var date: Date = .now
-    @State var isShowCalendar: Bool = false
-    @State var isAdded: Bool = true
     
     @State var viewModel: AddViewModel = Assembly.createAddViewModel()
     

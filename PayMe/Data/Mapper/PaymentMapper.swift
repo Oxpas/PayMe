@@ -11,14 +11,17 @@ import CoreData
 struct PaymentMapper {
     
     static func toDomain(from entity: PaymentEntity) -> Payment {
-        var payment = Payment(id: entity.id ?? "",
+        var payment = Payment(id: entity.id,
                               type: PayType(rawValue: Int(entity.type)) ?? .monthly,
-                              title: entity.title ?? "",
-                              description: entity.descriptionText ?? "",
+                              title: entity.title,
+                              description: entity.descriptionText,
                               paymentAmount: entity.paymentAmount,
                               totalAmount: entity.totalAmount,
+                              dueDay: Int(entity.dueDay),
+                              dueDate: entity.dueDate ?? .now,
                               isNotificationEnabled: entity.isNotificationEnabled,
-                              createdAt: entity.createdAd ?? .now)
+                              createdAt: entity.createdAd,
+                              lastPay: entity.lastPay ?? .now)
         
         return payment
     }
@@ -32,6 +35,9 @@ struct PaymentMapper {
         entity.descriptionText = from.description
         entity.paymentAmount = from.paymentAmount
         entity.totalAmount = from.totalAmount
+        entity.dueDay = Int16(from.dueDay ?? 0)
+        entity.dueDate = from.dueDate
+        entity.lastPay = from.lastPay
         entity.isNotificationEnabled = from.isNotificationEnabled
         entity.createdAd = from.createdAt
         
