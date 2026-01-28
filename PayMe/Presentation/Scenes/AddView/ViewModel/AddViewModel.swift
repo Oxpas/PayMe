@@ -15,7 +15,14 @@ final class AddViewModel: ObservableObject {
         self.createUseCase = createUseCase
     }
     
-    @Published var payment: Payment?
+    @Published var isNotificationSelected: Bool = false
+    @Published var payType: PayType = .monthly
+    @Published var date: Date = .now
+    @Published var isShowCalendar: Bool = false
+    @Published var isAdded: Bool = true
+    
+    @Published var nameText: String = ""
+
     
     func createNewPayment() {
         do {
@@ -26,7 +33,8 @@ final class AddViewModel: ObservableObject {
                                                        paymentAmount: 10,
                                                        totalAmount: 20,
                                                        isNotificationEnabled: true,
-                                                        createdAt: .now))
+                                                        createdAt: .now,
+                                                        lastPay: nil))
         } catch {
             print(error.localizedDescription)
         }

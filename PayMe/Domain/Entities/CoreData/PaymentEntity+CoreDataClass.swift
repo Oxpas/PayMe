@@ -2,7 +2,7 @@
 //  PaymentEntity+CoreDataClass.swift
 //  PayMe
 //
-//  Created by Николай Замараев on 28.12.2025.
+//  Created by Николай Замараев on 29.12.2025.
 //
 //
 
@@ -24,16 +24,17 @@ extension PaymentEntity {
         return NSFetchRequest<PaymentEntity>(entityName: "PaymentEntity")
     }
 
-    @NSManaged public var id: String?
-    @NSManaged public var title: String?
-    @NSManaged public var type: Int16
-    @NSManaged public var totalAmount: Double
-    @NSManaged public var descriptionText: String?
-    @NSManaged public var paymentAmount: Double
-    @NSManaged public var dueDay: Int16
+    @NSManaged public var createdAd: Date
+    @NSManaged public var descriptionText: String
     @NSManaged public var dueDate: Date?
+    @NSManaged public var dueDay: Int16
+    @NSManaged public var id: String
     @NSManaged public var isNotificationEnabled: Bool
-    @NSManaged public var createdAd: Date?
+    @NSManaged public var paymentAmount: Double
+    @NSManaged public var title: String
+    @NSManaged public var totalAmount: Double
+    @NSManaged public var type: Int16
+    @NSManaged public var lastPay: Date?
 
 }
 
